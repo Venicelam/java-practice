@@ -12,40 +12,33 @@ public class App {
         Car car = new Car("Car A", "Goodbye");
         car.SpeedUp(180);
         car.SpeedUp(201);
+
+        Bus bus = new Bus ("Bus A","OOCL");
+        bus.SpeedUp(70);
+        bus.SpeedUp(100);
+
+        Driver venice = new Driver(vehicleA,"Venice");
+        venice.SpeedUp(120);
+
+        Driver amy = new Driver(bus,"Amy");
+        amy.SpeedUp(230);
     }
 }
 
 
-class Vehicle {
 
-    private String name;
-    private String brand;
+class Driver{
+   String name;
+   Vehicle vehicle;
 
-    public Vehicle(String name, String brand) {
+    public Driver (Vehicle vehicle, String name){
+        this.vehicle = vehicle;
         this.name = name;
-        this.brand = brand;
-
-
     }
 
-    public void SpeedUp(int speed) {
-        System.out.println("Name: " + this.name + " Brand: " + this.brand + " Speed: " + speed);
-    }
-
-
-}
-
-class Car extends Vehicle{
-    public Car(String name, String brand){
-        super(name, brand);
-    }
-    @Override
     public void SpeedUp(int speed){
-        if (speed >= 190){
-            super.SpeedUp(speed);
-        } else{
-            System.out.println("Fail to speedup!");
-        }
+        System.out.println("I am driver, my name is " + this.name);
+        this.vehicle.SpeedUp(speed);
     }
 }
 
