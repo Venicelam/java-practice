@@ -3,10 +3,15 @@
  */
 public class App {
     public static void main(String[] args) {
-        Vehicle vehicleA = new Vehicle("Car A", "Benz");
+        Vehicle vehicleA = new Vehicle("Vehicle A", "Benz");
         vehicleA.SpeedUp(50);
-        Vehicle vehicleB = new Vehicle("Car B", "Toyota");
+
+        Vehicle vehicleB = new Vehicle("Vehicle B", "Toyota");
         vehicleB.SpeedUp(40);
+
+        Car car = new Car("Car A", "Goodbye");
+        car.SpeedUp(180);
+        car.SpeedUp(201);
     }
 }
 
@@ -28,5 +33,19 @@ class Vehicle {
     }
 
 
+}
+
+class Car extends Vehicle{
+    public Car(String name, String brand){
+        super(name, brand);
+    }
+    @Override
+    public void SpeedUp(int speed){
+        if (speed >= 190){
+            super.SpeedUp(speed);
+        } else{
+            System.out.println("Fail to speedup!");
+        }
+    }
 }
 
